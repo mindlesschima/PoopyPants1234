@@ -4,7 +4,7 @@ const groupID = 4576819;
 const bot_token = process.env.botToken;
 const rblxCookie = process.env.rblxCookie;
 const officerRoleE = "High Ranks";
-const welcomeMessage = "Welcome to the family!";
+const welcomeMessage = ":tada: Welcome to the family :tada:!";
 const maxXP = 3;
 const xpAuditLogChannelID = "608415045621252118";
 const mainChatChannelID = "518919450544570380";
@@ -118,7 +118,7 @@ bot.on('message', async message => {
   }
 
   if (message.content.toLowerCase().startsWith(`${prefix}${xpName}`)){
-    if (!message.member.roles.exists("name", `${officerRole}`)){
+    if (!message.member.roles.exists("name", `${officerRoleE}`)){
       return message.channel.send(`Sorry ${message.author}, but only users with the **\`${officerRoleE}\`** can run that command!`).then(message => message.delete(5000));
     }
     if (!args[1]){
