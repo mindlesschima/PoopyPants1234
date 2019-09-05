@@ -7,7 +7,7 @@ const officerRoleE = "High Ranks";
 const welcomeMessage = ":tada: Welcome to the family :tada:!";
 const maxXP = 3;
 const xpAuditLogChannelID = "608415045621252118";
-const mainChatChannelID = "518919450544570380";
+const mainChatChannelID = "619248837038571534";
 const fireBaseURL = process.env.fireBaseURL;
 const xpName = "xp";
 /* SETTINGS END */
