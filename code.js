@@ -5,9 +5,9 @@ const bot_token = process.env.botToken;
 const rblxCookie = process.env.rblxCookie;
 const officerRoleE = "High Ranks";
 const welcomeMessage = ":tada: Welcome to the family! :tada:";
-const maxXP = 10;
+const maxXP = 3;
 const xpAuditLogChannelID = "608415045621252118";
-const mainChatChannelID = "518919450544570380";
+const mainChatChannelID = "619248837038571534";
 const fireBaseURL = process.env.fireBaseURL;
 /* SETTINGS END */
 
@@ -179,7 +179,7 @@ bot.on('message', async message => {
                 var embed = new Discord.RichEmbed()
                   .setColor(0x5aa9fe)
                   .setTitle(`Insertion`)
-                  .setDescription(`Inserted and updated **\`${userArray[i].toLowerCase()}\`**'s profile within my database!`)
+                  .setDescription(`Inserted and updated**\`${userArray[i].toLowerCase()}\`**'s profile within my database! :book:`)
                 await message.channel.send(embed).then(message => message.delete(5000));
                 var auditLogEmbed = new Discord.RichEmbed()
                   .setColor(0xff793b)
@@ -584,7 +584,13 @@ bot.on('message', async message => {
     return message.channel.send(embed)
   }
 
-
+  if (message.member.roles.exists("name", "Verified")){
+    console.log("updating nickname")
+    var rblxUsername = message.member.nickname.substring(message.member.nickname.indexOf(`|`) + 1)
+    var rblxUserID = await rbx.getIdFromUsername(`${rblxUsername}`)
+    var rankName = await rbx.getRankNameInGroup(config.groupID, rblxUserID)
+    message.member.setNickname(`${rankName} | ${rblxUsername}`)
+  }
 });
 
 
